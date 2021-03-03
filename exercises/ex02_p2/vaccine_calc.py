@@ -12,25 +12,25 @@ def main() -> None:
     doses_per_day: int = int(input("Doses per day: "))
     target: int = int(input("Target percent vaccinated: "))
     # TODO 2: Call days_to_target and store result in a variable.
-    days_to_target: float = float(days_to_target())
+    d: int = int(days_to_target(population, doses, doses_per_day, target))
     # TODO 4: Call future_date and store result in a variable.
-    future_date: str = str(future_date())
+    future: str = str(future_date(d))
     # TODO 5: Print the expected output using the variables above.
-    print("We will reach" + target + "% vaccination in" + days_to_target + "days, on" + future_date)
+    print("We will reach" + target + "% vaccination in" + d + "days, on" + future + ".")
     
 
 
 # TODO 1: Define days_to_target function
-def days_to_target(population: int, doses: int, doses_per_day: int, target: int) -> float:
-    d: float = float((population * (target / 100 ) - doses)/ doses_per_day)
+def days_to_target(population: int, doses: int, doses_per_day: int, target: int) -> int:
+    d: int = int((population * (target/100) - doses)/ doses_per_day)
     return d
 
 
 # TODO 3: Define future_date function
-def future_date(d: float) -> str:
+def future_date(d: int) -> str:
     today: datetime = datetime.today
-    one_day: timedelta = timedelta(1)
-    future: datetime = d * one_day + today
+    days_to_pass: timedelta = timedelta(d)
+    future: datetime = days_to_pass + today
     return future
 
 
