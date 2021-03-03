@@ -18,3 +18,16 @@ from datetime import timedelta
 
 
 # Begin your solution here...
+population: int = int(input("Enter Population: "))
+doses_administered: int = int(input("Ender Doses Administered: "))
+doses_per_day: int = int(input("Number of doses given per day her on out: "))
+target_percent_vaccinated: int = int(input("Target percent of population vaccinated: "))
+today: datetime = datetime.today()
+one_day: timedelta = timedelta(1)
+tomorrow: datetime = today + one_day
+fortnight: timedelta = timedelta(7 + 7)
+future: datetime = today + fortnight
+
+
+if target_percent_vaccinated < 101:
+    print("We will reach" + target_percent_vaccinated + "in" + days_passed + ", which falls on" +
